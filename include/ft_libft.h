@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 14:01:50 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 14:11:10 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		*ft_memcpy(void *dst, const void *src, t_size_t n);
 void		*ft_memccpy(void *dst, const void *src, int c, t_size_t n);
 void		*ft_memmove(void *dst, const void *src, t_size_t len);
 void		*ft_memchr(const void *s, int c, t_size_t n);
-void		*ft_memcmp(const void *s1, const void *s2, t_size_t n);
+int			ft_memcmp(const void *s1, const void *s2, t_size_t n);
 
 t_size_t	ft_strlen(const char *s, t_size_t maxlen);
 t_size_t	ft_strlcpy(char *dst, const char *src, t_size_t dstsize);
