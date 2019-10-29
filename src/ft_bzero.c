@@ -6,8 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:18 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:18 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 13:16:21 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_libft.h"
 
+void	ft_bzero(void *s, size_t n)
+{
+	return (ft_memset(s, 0, n));
+}

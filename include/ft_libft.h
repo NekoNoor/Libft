@@ -6,12 +6,14 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 12:05:06 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 13:12:04 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
+
+typedef	unsigned int size_t
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
