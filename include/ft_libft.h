@@ -6,12 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 16:01:08 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 18:46:50 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
+# define NULL ((void *)0)
 
 typedef unsigned long	t_size_t;
 
@@ -23,7 +24,7 @@ void		*ft_memmove(void *dst, const void *src, t_size_t len);
 void		*ft_memchr(const void *s, int c, t_size_t n);
 int			ft_memcmp(const void *s1, const void *s2, t_size_t n);
 
-t_size_t	ft_strlen(const char *s, t_size_t maxlen);
+t_size_t	ft_strlen(const char *s);
 t_size_t	ft_strlcpy(char *dst, const char *src, t_size_t dstsize);
 t_size_t	ft_strlcat(char *dst, const char *src, t_size_t dstsize);
 char		*ft_strchr(const char *s, int c);

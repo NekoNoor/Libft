@@ -5,15 +5,14 @@
 #                                                      +:+                     #
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/10/28 17:47:07 by nschat        #+#    #+#                  #
-#    Updated: 2019/10/28 18:16:45 by nschat        ########   odam.nl          #
+#    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
+#    Updated: 2019/10/29 18:56:15 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror -Iinclude
 
-INC = -I./include/
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
 	  ft_strrchr.c ft_strncmp.c ft_atoi.c ft_isalpha.c ft_isdigit.c \
@@ -22,25 +21,25 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 	  ft_putnbr_fd.c
 
-ODIR = ./obj/
-OBJ = $(addprefix $(ODIR),$(SRC:.c=.o))
+ODIR = obj
+OBJ = $(addprefix $(ODIR)/,$(SRC:.c=.o))
 
 NAME = libft.a
 
-vpath %.c ./src
+vpath %.c src
 
 .PHONY: clean fclean
 
 all: $(NAME)
 
-$(NAME):
-	ar rc $@ $(OBJ)
+$(NAME): $(OBJ)
+	ar rc $@ $^
 	ranlib $@
 
 $(ODIR):
-	mkdir $@
+	mkdir -p $@
 
-$(ODIR)%.o: %.c $(ODIR)
+$(ODIR)/%.o: %.c $(ODIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
