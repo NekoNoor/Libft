@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 19:47:28 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 19:51:32 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ char	*ft_itoa(int n)
 	{
 		str[i] = '-';
 		n *= -1;
+		i++;
+	}
+	if (n == 0)
+	{
+		str[i] = '0';
 		i++;
 	}
 	while (n)
