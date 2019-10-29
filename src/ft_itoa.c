@@ -6,8 +6,10 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 18:16:28 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 13:37:22 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+char	*ft_itoa(int n)
+{
+}

@@ -6,8 +6,10 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:18 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:19 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 13:38:19 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+void	*ft_memcpy(void *dst, const void *src, t_size_t n)
+{
+}

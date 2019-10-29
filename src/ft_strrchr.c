@@ -6,8 +6,12 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:21 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 14:01:40 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_libft.h"
 
+char	*ft_strrchr(const char *s, int c)
+{
+}
