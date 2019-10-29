@@ -6,8 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:22 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:22 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 10:39:47 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}

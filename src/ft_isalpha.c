@@ -6,8 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:21 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 10:37:34 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+int	ft_isalpha(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
+}

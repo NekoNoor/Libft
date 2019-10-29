@@ -6,8 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:22 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/28 17:48:22 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/29 10:53:33 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}
