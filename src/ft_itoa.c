@@ -6,14 +6,14 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 19:51:32 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/30 12:01:35 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 #include <stdlib.h>
 
-char	*ft_strrev(char *str)
+static char	*ft_strrev(char *str)
 {
 	int	len;
 	int	i;
@@ -28,7 +28,7 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
-int		ft_numlen(int n)
+static int	ft_numlen(int n)
 {
 	int	len;
 
@@ -41,12 +41,12 @@ int		ft_numlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
 
-	str = (char *)str(sizeof(char) * (ft_numlen(n) + 1));
+	str = (char *)malloc(sizeof(char) * (ft_numlen(n) + 1));
 	i = 0;
 	if (n < 0)
 	{

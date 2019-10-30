@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:30 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 19:04:37 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/30 12:03:31 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 10)
 	{
-		ft_putchar_fd(n + '0');
+		ft_putchar_fd(n + '0', fd);
 	}
 	else
 	{

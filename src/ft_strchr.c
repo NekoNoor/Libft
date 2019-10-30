@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:20 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 13:16:18 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/30 11:59:40 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	if (!*s && *s != c)
 		return (NULL);
-	return (s);
+	return ((char *)s);
 }
