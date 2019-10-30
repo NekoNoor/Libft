@@ -12,7 +12,7 @@
 
 #include "ft_libft.h"
 
-t_size_t	ft_strlcpy(char *dst, const char *src, t_size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	ft_memcpy(dst, src, dstsize - 1);
 	if (dstsize)

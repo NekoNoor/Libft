@@ -12,9 +12,9 @@
 
 #include "ft_libft.h"
 
-t_size_t	ft_strlcat(char *dst, const char *src, t_size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	t_size_t	len;
+	size_t	len;
 
 	len = ft_strlen(dst);
 	ft_memcpy(dst + len, src, dstsize - len - 1);

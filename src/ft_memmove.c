@@ -12,7 +12,7 @@
 
 #include "ft_libft.h"
 
-static void	*ft_memcpy_rev(void *dst, const void *src, t_size_t n)
+static void	*ft_memcpy_rev(void *dst, const void *src, size_t n)
 {
 	while (n)
 	{
@@ -22,7 +22,7 @@ static void	*ft_memcpy_rev(void *dst, const void *src, t_size_t n)
 	return (dst);
 }
 
-void		*ft_memmove(void *dst, const void *src, t_size_t len)
+void		*ft_memmove(void *dst, const void *src, size_t len)
 {
 	if (src + len > dst)
 		ft_memcpy_rev(dst, src, len);

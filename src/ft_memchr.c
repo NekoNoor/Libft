@@ -12,7 +12,7 @@
 
 #include "ft_libft.h"
 
-void		*ft_memchr(const void *s, int c, t_size_t n)
+void		*ft_memchr(const void *s, int c, size_t n)
 {
 	while (*((const char *)s) && *((const char *)s) != c && n)
 	{
