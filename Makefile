@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/10/29 18:56:15 by nschat        ########   odam.nl          #
+#    Updated: 2019/10/31 13:39:34 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,8 @@ $(NAME): $(OBJ)
 	ar rc $@ $^
 	ranlib $@
 
-$(ODIR):
-	mkdir -p $@
-
-$(ODIR)/%.o: %.c $(ODIR)
+$(ODIR)/%.o: %.c
+	@mkdir -p $(ODIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
