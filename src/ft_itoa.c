@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/30 15:47:57 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/31 17:47:14 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,15 @@ static int	ft_numlen(int n)
 char		*ft_itoa(int n)
 {
 	char	*str;
+	int		neg;
 	int		i;
 
 	str = (char *)malloc(sizeof(char) * (ft_numlen(n) + 1));
+	if (str == NULL)
+		return (NULL);
+	neg = (n < 0) ? 1 : 0;
+	n *= (n < 0) ? -1 : 1;
 	i = 0;
-	if (n < 0)
-	{
-		str[i] = '-';
-		n *= -1;
-		i++;
-	}
 	if (n == 0)
 	{
 		str[i] = '0';
@@ -64,6 +63,8 @@ char		*ft_itoa(int n)
 		n /= 10;
 		i++;
 	}
-	str[i] = '\0';
+	if (neg)
+		str[i] = '-';
+	str[i + neg] = '\0';
 	return (ft_strrev(str));
 }
