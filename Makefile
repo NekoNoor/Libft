@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/10/31 13:39:34 by nschat        ########   odam.nl          #
+#    Updated: 2019/10/31 17:17:07 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,7 @@ vpath %.c src
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^
-	ranlib $@
+	ar rcs $@ $^
 
 $(ODIR)/%.o: %.c
 	@mkdir -p $(ODIR)
