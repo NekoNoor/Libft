@@ -6,12 +6,12 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/10/31 13:39:34 by nschat        ########   odam.nl          #
+#    Updated: 2019/10/31 16:36:39 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -g -Wall -Wextra -Werror -Iinclude
+CFLAGS = -g -Wall -Wextra -Werror -I include
 
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
