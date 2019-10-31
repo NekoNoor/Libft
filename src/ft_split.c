@@ -6,13 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/31 14:26:31 by nschat        ########   odam.nl         */
+/*   Updated: 2019/10/31 16:06:09 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-static int	*ft_countwords(char *str, char delim)
+static int			ft_countwords(const char *str, char delim)
 {
 	int	count;
 
@@ -29,7 +29,7 @@ static int	*ft_countwords(char *str, char delim)
 	return (count);
 }
 
-static char	*ft_copyword(char *dst, char const *src, char delim)
+static const char	*ft_copyword(char *dst, char const *src, char delim)
 {
 	int		len;
 
@@ -43,12 +43,12 @@ static char	*ft_copyword(char *dst, char const *src, char delim)
 	return (src + len);
 }
 
-char		**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
 
-	arr = (char **)malloc(sizeof(char *) * (count + 1));
+	arr = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
@@ -58,7 +58,7 @@ char		**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			*s = ft_copyword(arr[i], s, c);
+			s = ft_copyword(arr[i], s, c);
 			if (s == NULL)
 				return (NULL);
 			i++;
