@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/31 17:47:14 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/02 19:52:09 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 static char	*ft_strrev(char *str)
 {
-	int	len;
-	int	i;
+	char	temp;
+	int		len;
+	int		i;
 
 	len = ft_strlen(str);
 	i = 0;
 	while (i < len / 2)
 	{
+		temp = str[i];
 		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
 		i++;
 	}
 	return (str);
@@ -43,28 +46,27 @@ static int	ft_numlen(int n)
 char		*ft_itoa(int n)
 {
 	char	*str;
-	int		neg;
+	long	nbr;
 	int		i;
 
 	str = (char *)malloc(sizeof(char) * (ft_numlen(n) + 1));
 	if (str == NULL)
 		return (NULL);
-	neg = (n < 0) ? 1 : 0;
-	n *= (n < 0) ? -1 : 1;
+	nbr = ABS((long)n);
 	i = 0;
-	if (n == 0)
+	if (nbr == 0)
 	{
 		str[i] = '0';
 		i++;
 	}
-	while (n)
+	while (nbr)
 	{
-		str[i] = n % 10 + '0';
-		n /= 10;
+		str[i] = nbr % 10 + '0';
+		nbr /= 10;
 		i++;
 	}
-	if (neg)
+	if (n < 0)
 		str[i] = '-';
-	str[i + neg] = '\0';
+	str[i + (n < 0)] = '\0';
 	return (ft_strrev(str));
 }
