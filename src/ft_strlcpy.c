@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:20 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/30 11:30:43 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/02 20:16:03 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	ft_memcpy(dst, src, dstsize - 1);
-	if (dstsize)
+	char	*ptr;
+
+	ptr = ft_memccpy(dst, src, '\0', dstsize - 1);
+	if (ptr == NULL)
 		dst[dstsize - 1] = '\0';
 	return (ft_strlen(src));
 }
