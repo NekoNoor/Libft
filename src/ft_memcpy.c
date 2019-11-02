@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:18 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/02 17:27:30 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/02 20:54:36 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	int	i;
 
 	i = 0;
+	if (dst == NULL || src == NULL)
+		return (dst);
 	while (n)
 	{
 		((char *)dst)[i] = ((char *)src)[i];
