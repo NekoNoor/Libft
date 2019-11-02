@@ -6,18 +6,25 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 13:12:29 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/02 17:11:33 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-int	ft_atoi(const char *str)
+static int	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (1);
+	return (0);
+}
+
+int			ft_atoi(const char *str)
 {
 	int	sign;
 	int nbr;
 
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
+	while (ft_isspace(*str))
 		str++;
 	sign = 1;
 	if (*str == '+' || *str == '-')
@@ -26,7 +33,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	nbr = 0;
-	while (*str >= '0' && *str <= '9')
+	while (ft_isdigit(*str))
 	{
 		nbr = nbr * 10 + (*str - '0');
 		str++;

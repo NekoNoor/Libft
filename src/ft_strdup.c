@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:23 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/30 15:48:18 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/02 17:35:06 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strdup(const char *s1)
 	int		len;
 
 	len = ft_strlen(s1);
-	dup = (char *)malloc(sizeof(char) * len + 1);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
 	if (dup == NULL)
 		return (NULL);
-	ft_memcpy(dup, s1, len + 1);
+	ft_strlcpy(dup, s1, len + 1);
 	return (dup);
 }
