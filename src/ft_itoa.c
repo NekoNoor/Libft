@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 static char	*ft_strrev(char *str)
 {
