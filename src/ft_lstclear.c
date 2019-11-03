@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 17:36:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/03 17:47:44 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/03 20:56:16 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	(void)lst;
-	(void)del;
+	while (*lst)
+	{
+		(*del)((*lst)->content);
+		free((*lst)->content);
+		*lst = (*lst)->next;
+	}
 }

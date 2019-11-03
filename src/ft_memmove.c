@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:19 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/03 16:56:30 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/03 21:11:58 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	*ft_memrcpy(void *dst, const void *src, size_t n)
 
 void		*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (dst + len > src)
+	if (src + len > dst)
 		return (ft_memcpy(dst, src, len));
 	else
 		return (ft_memrcpy(dst, src, len));
