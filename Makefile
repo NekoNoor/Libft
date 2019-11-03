@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/03 17:35:09 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/03 18:02:57 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJ)
 	ar rcs $@ $^
 
 bonus: $(OBJ) $(BOBJ)
-	ar rcs $@ $^
+	ar rcs $(NAME) $^
 
 $(ODIR)/%.o: %.c
 	@mkdir -p $(ODIR)
