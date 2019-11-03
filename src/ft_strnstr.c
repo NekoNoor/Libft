@@ -6,13 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 17:06:11 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/03 17:13:12 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/03 17:15:54 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-char	*strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	const char	*haystack_s;
 	const char	*needle_s;
