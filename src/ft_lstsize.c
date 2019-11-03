@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 17:36:27 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/03 17:46:12 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/03 18:38:55 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	(void)lst;
-	return (0);
+	int	size;
+
+	size = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }
