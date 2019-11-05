@@ -6,12 +6,15 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/05 21:24:55 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/05 21:50:24 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -I include
+ifeq (${DEBUG},true)
+	CFLAGS := -g -fprofile-instr-generate -fcoverage-mapping $(CFLAGS)
+endif
 
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
@@ -62,7 +65,7 @@ bonus: $(OBJ) $(BOBJ)
 $(ODIR)/%.o: %.c
 	@printf "$(TIME) $(CPLUS) $(CBLUE)"
 	@mkdir -p $(ODIR)
-	$(CC) ${ARGS} $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(CDEF)"
 
 clean:
