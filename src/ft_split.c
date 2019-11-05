@@ -6,63 +6,88 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/31 16:06:09 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/05 20:02:03 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_countwords(const char *str, char delim)
+static int	ft_wrdcount(char const *str, char delim)
 {
 	int	count;
 
 	count = 0;
 	while (*str)
 	{
-		while (*str && *str == delim)
+		while (*str == delim)
 			str++;
 		if (*str)
 			count++;
-		while (*str && *str != delim)
+		while (*str != delim && *str)
 			str++;
 	}
 	return (count);
 }
 
-static const char	*ft_copyword(char *dst, char const *src, char delim)
+static int	ft_wrdlen(char const *str, char delim)
 {
-	int		len;
+	int	len;
 
 	len = 0;
-	while (src[len] && src[len] != delim)
+	while (str[len] && str[len] != delim)
 		len++;
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (dst == NULL)
-		return (NULL);
-	ft_strlcpy(dst, src, len + 1);
-	return (src + len);
+	return (len);
 }
 
-char				**ft_split(char const *s, char c)
+static char	*ft_wrddup(char const **src, char delim)
+{
+	char	*dup;
+	int		len;
+
+	while (*(*src) == delim)
+		(*src)++;
+	len = ft_wrdlen(*src, delim);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (dup == NULL)
+		return (NULL);
+	ft_memccpy(dup, *src, delim, len + 1);
+	dup[len] = '\0';
+	*src += len;
+	return (dup);
+}
+
+static void	free_arr(char **arr)
+{
+	while (*arr)
+	{
+		free(*arr);
+		arr++;
+	}
+}
+
+char		**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		i;
+	size_t	size;
+	size_t	i;
 
-	arr = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
+	if (s == NULL)
+		return (NULL);
+	size = ft_wrdcount(s, c);
+	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
-	while (*s)
+	while (*s && i < size)
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
+		arr[i] = ft_wrddup(&s, c);
+		if (arr[i] == NULL)
 		{
-			s = ft_copyword(arr[i], s, c);
-			if (s == NULL)
-				return (NULL);
-			i++;
+			free_arr(arr);
+			free(arr);
+			return (NULL);
 		}
+		i++;
 	}
 	arr[i] = NULL;
 	return (arr);
