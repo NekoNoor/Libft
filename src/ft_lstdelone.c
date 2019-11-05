@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 17:36:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/04 13:20:09 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/05 13:54:08 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	if (lst == NULL || del == NULL)
 		return ;
 	(*del)(lst->content);
-	lst->content = NULL;
+	free(lst);
 }
