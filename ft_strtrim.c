@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/06 20:55:04 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/06 22:28:13 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	int		len;
 
-	if (s1 == NULL || set == NULL)
+	if (s1 == NULL)
 		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
 	begin = 0;
 	while (s1[begin] && ft_strchr(set, s1[begin]))
 		begin++;
