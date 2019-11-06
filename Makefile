@@ -6,12 +6,12 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/05 21:50:24 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/06 13:07:53 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -I include
+CFLAGS = -Wall -Wextra -Werror -I .
 ifeq (${DEBUG},true)
 	CFLAGS := -g -fprofile-instr-generate -fcoverage-mapping $(CFLAGS)
 endif
@@ -23,12 +23,13 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 	  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c \
 	  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-BSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-	   ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+	   ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+	   ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-ODIR = obj
-OBJ = $(addprefix $(ODIR)/,$(SRC:.c=.o))
-BOBJ = $(addprefix $(ODIR)/,$(BSRC:.c=.o))
+ODIR = .
+OBJ = $(SRC:.c=.o)
+BOBJ = $(BSRC:.c=.o)
 
 NAME = libft.a
 
@@ -70,7 +71,7 @@ $(ODIR)/%.o: %.c
 
 clean:
 	@printf "$(TIME) $(CMINUS) $(CRED)"
-	$(RM) -r $(ODIR)
+	$(RM) $(OBJ) $(BOBJ)
 	@printf "$(CDEF)"
 
 fclean: clean
