@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/06 13:07:53 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/06 13:21:36 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ BSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	   ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 	   ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-ODIR = .
 OBJ = $(SRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
 
@@ -63,9 +62,8 @@ bonus: $(OBJ) $(BOBJ)
 	ar rcs $(NAME) $^
 	@printf "$(CDEF)"
 
-$(ODIR)/%.o: %.c
+%.o: %.c
 	@printf "$(TIME) $(CPLUS) $(CBLUE)"
-	@mkdir -p $(ODIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(CDEF)"
 
