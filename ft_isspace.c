@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strncmp.c                                       :+:    :+:            */
+/*   ft_isspace.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:18:13 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/07 17:35:49 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/07 17:38:01 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_isspace(int c)
 {
-	while (*s1 && *s2 && n)
-	{
-		if (*s1 != *s2)
-			return (*(unsigned char *)s1 - *(unsigned char *)s2);
-		s1++;
-		s2++;
-		n--;
-	}
-	return (0);
+	return ((c >= 9 && c <= 13) || c == 32);
 }

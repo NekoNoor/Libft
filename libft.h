@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/03 18:33:24 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:32:34 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *haystack, const char *needle,
 							size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-int				ft_atoi(const char *str);
 
+int				ft_atoi(const char *str);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -71,5 +71,9 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));
+
+int				ft_isupper(int c);
+int				ft_islower(int c);
+int				ft_isspace(int c);
 
 #endif

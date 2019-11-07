@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:29 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/05 19:51:29 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:54:06 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL || f == NULL)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	res = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (res == NULL)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/05 20:28:29 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:53:24 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*ft_wrddup(char const **src, char delim)
 	while (*(*src) == delim)
 		(*src)++;
 	len = ft_wrdlen(*src, delim);
-	dup = (char *)malloc(sizeof(char) * (len + 1));
+	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (dup == NULL)
 		return (NULL);
 	ft_memccpy(dup, *src, delim, len + 1);
@@ -74,7 +74,7 @@ char		**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	size = ft_wrdcount(s, c);
-	arr = (char **)malloc(sizeof(char *) * (size + 1));
+	arr = (char **)malloc((size + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;

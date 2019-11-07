@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/05 15:52:30 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:36:20 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@ static int	ft_longcheck(long nbr, int sign, char next)
 	if (nbr == 922337203685477580 && sign == 1 && next > '7')
 		return (-1);
 	return (1);
-}
-
-static int	ft_isspace(int c)
-{
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (1);
-	return (0);
 }
 
 int			ft_atoi(const char *str)

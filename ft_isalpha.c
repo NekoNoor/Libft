@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/10/29 13:14:05 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:37:12 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	return (ft_isupper(c) || ft_islower(c));
 }

@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/06 22:28:13 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/07 17:40:38 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ char		*ft_strtrim(char const *s1, char const *set)
 	while (end >= 0 && ft_strchr(set, s1[end]))
 		end--;
 	len = end - begin + 1;
-	trimmed = (char *)malloc(sizeof(char) * (len + 1));
-	if (trimmed == NULL)
-		return (NULL);
-	ft_strlcpy(trimmed, s1 + begin, len + 1);
+	trimmed = ft_substr(s1, begin, len);
 	return (trimmed);
 }
