@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:53:24 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/08 13:41:39 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	free_arr(char **arr)
 		free(*arr);
 		arr++;
 	}
+	free(arr);
 }
 
 char		**ft_split(char const *s, char c)
@@ -84,7 +85,6 @@ char		**ft_split(char const *s, char c)
 		if (arr[i] == NULL)
 		{
 			free_arr(arr);
-			free(arr);
 			return (NULL);
 		}
 		i++;
