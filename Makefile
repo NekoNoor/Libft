@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/07 17:57:43 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/09 15:00:17 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,6 @@ CPLUS=$(CGREEN)[+]$(CDEF)
 CNORM=$(CYELLOW)[~]$(CDEF)
 
 TIME=$(CCYAN)[$$(date +"%H:%M:%S")]$(CDEF)
-
-vpath %.c src
 
 .PHONY: clean fclean
 
