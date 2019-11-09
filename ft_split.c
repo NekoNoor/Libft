@@ -6,85 +6,86 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/08 13:41:39 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/09 20:34:36 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_wrdcount(char const *str, char delim)
+static char const	*ft_skip_delim(char const *s, char c)
 {
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		while (*str == delim)
-			str++;
-		if (*str)
-			count++;
-		while (*str != delim && *str)
-			str++;
-	}
-	return (count);
-}
-
-static int	ft_wrdlen(char const *str, char delim)
-{
-	int	len;
-
-	len = 0;
-	while (str[len] && str[len] != delim)
-		len++;
-	return (len);
-}
-
-static char	*ft_wrddup(char const **src, char delim)
-{
-	char	*dup;
-	int		len;
-
-	while (*(*src) == delim)
-		(*src)++;
-	len = ft_wrdlen(*src, delim);
-	dup = (char *)malloc((len + 1) * sizeof(char));
-	if (dup == NULL)
+	s = ft_strchr(s, c);
+	if (s == NULL)
 		return (NULL);
-	ft_memccpy(dup, *src, delim, len + 1);
-	dup[len] = '\0';
-	*src += len;
-	return (dup);
+	while (*s == c)
+		s++;
+	return (s);
 }
 
-static void	free_arr(char **arr)
+static size_t		ft_arr_size(char const *s, char c)
 {
-	while (*arr)
+	size_t	size;
+
+	size = 0;
+	s = ft_skip_delim(s, c);
+	if (s == NULL || c == '\0')
+		return (1);
+	while (s)
 	{
-		free(*arr);
-		arr++;
+		s = ft_skip_delim(s, c);
+		if (s != NULL)
+			size++;
+	}
+	return (size);
+}
+
+static size_t		ft_split_size(char const *s, char c)
+{
+	size_t	size;
+	char	*delim;
+
+	delim = ft_strchr(s, c);
+	if (delim == NULL)
+		return (0);
+	size = delim - s;
+	return (size);
+}
+
+static void			ft_free_arr(char **arr, size_t i)
+{
+	while (i)
+	{
+		i--;
+		free(arr[i]);
 	}
 	free(arr);
 }
 
-char		**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
-	char	**arr;
-	size_t	size;
-	size_t	i;
+	char		**arr;
+	char const	*orig;
+	size_t		size;
+	size_t		i;
 
 	if (s == NULL)
 		return (NULL);
-	size = ft_wrdcount(s, c);
-	arr = (char **)malloc((size + 1) * sizeof(char *));
+	orig = s;
+	size = ft_arr_size(s, c);
+	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
-	while (*s && i < size)
+	while (i < size && s)
 	{
-		arr[i] = ft_wrddup(&s, c);
+		s = ft_skip_delim(s, c);
+		if (i == 0 && (s == NULL || c == '\0'))
+			arr[i] = ft_strdup(orig);
+		else
+			arr[i] = ft_substr(s, 0, ft_split_size(s, c));
 		if (arr[i] == NULL)
 		{
-			free_arr(arr);
+			ft_free_arr(arr, i);
 			return (NULL);
 		}
 		i++;

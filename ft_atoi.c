@@ -6,40 +6,55 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/09 16:07:31 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/09 21:34:56 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-static int	ft_longcheck(long nbr, int sign, char next)
+static unsigned char	ft_getvalue(char c, int base)
 {
-	if (nbr > 922337203685477580)
-		return ((sign == -1) ? 0 : -1);
-	if (nbr == 922337203685477580 && sign == -1 && next > '8')
-		return (0);
-	if (nbr == 922337203685477580 && sign == 1 && next > '7')
-		return (-1);
-	return (1);
+	if (base <= 10 && c >= '0' && c <= base - 1 + '0')
+		return (c - '0');
+	if (base > 10 && ft_isdigit(c))
+		return (c - '0');
+	if (base > 10 && c >= 'A' && c <= base - 10 - 1 + 'A')
+		return (c - 'A' + 10);
+	if (base > 10 && c >= 'a' && c <= base - 10 - 1 + 'a')
+		return (c - 'a' + 10);
+	return (255);
 }
 
-int			ft_atoi(const char *str)
+static long				ft_strtol(const char *str, int base)
 {
-	int		sign;
-	long	nbr;
+	int				sign;
+	unsigned long	nbr;
+	unsigned long	max;
+	int				lim;
 
+	if (base < 2 || base > 16)
+		return (0);
 	while (ft_isspace(*str))
 		str++;
-	sign = (*str == '-') ? -1 : 1;
-	if (*str == '+' || *str == '-')
+	sign = (base == 10 && *str == '-') ? -1 : 1;
+	if (base == 10 && (*str == '+' || *str == '-'))
 		str++;
 	nbr = 0;
-	while (ft_isdigit(*str))
+	max = (sign == -1) ? (unsigned long)LONG_MAX + 1 : LONG_MAX;
+	lim = (sign == -1) ? 8 : 7;
+	max /= base;
+	while (ft_getvalue(*str, base) != 255)
 	{
-		if (ft_longcheck(nbr, sign, *str) != 1)
-			return (ft_longcheck(nbr, sign, *str));
-		nbr = nbr * 10 + (*str - '0');
+		if (nbr > max || (nbr == max && ft_getvalue(*str, base) > max))
+			return ((sign == -1) ? LONG_MIN : LONG_MAX);
+		nbr = nbr * base + ft_getvalue(*str, base);
 		str++;
 	}
-	return ((int)nbr * sign);
+	return ((long)(nbr * sign));
+}
+
+int						ft_atoi(const char *str)
+{
+	return ((int)ft_strtol(str, 10));
 }
