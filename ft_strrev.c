@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmap_bonus.c                                  :+:    :+:            */
+/*   ft_strrev.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/06 13:09:08 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 16:35:24 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/10 16:55:41 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/10 16:56:01 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ft_strrev(char *str)
 {
-	t_list	*node;
-	t_list	*head;
+	char	temp;
+	int		len;
+	int		i;
 
-	head = NULL;
-	while (lst)
+	len = ft_strlen(str);
+	i = 0;
+	while (i < len / 2)
 	{
-		node = ft_lstnew((*f)(lst->content));
-		if (node == NULL)
-		{
-			ft_lstclear(&head, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&head, node);
-		lst = lst->next;
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+		i++;
 	}
-	return (head);
+	return (str);
 }
+

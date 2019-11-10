@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/09 21:34:56 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 17:20:58 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static long				ft_strtol(const char *str, int base)
 	max /= base;
 	while (ft_getvalue(*str, base) != 255)
 	{
-		if (nbr > max || (nbr == max && ft_getvalue(*str, base) > max))
+		if (nbr > max || (nbr == max && ft_getvalue(*str, base) > lim))
 			return ((sign == -1) ? LONG_MIN : LONG_MAX);
 		nbr = nbr * base + ft_getvalue(*str, base);
 		str++;

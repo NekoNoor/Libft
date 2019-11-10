@@ -6,29 +6,11 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:55:17 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 16:56:02 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strrev(char *str)
-{
-	char	temp;
-	int		len;
-	int		i;
-
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len / 2)
-	{
-		temp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = temp;
-		i++;
-	}
-	return (str);
-}
 
 static int	ft_numlen(int n)
 {

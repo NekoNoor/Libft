@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:32:34 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 16:56:15 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_isspace(int c);
+char			*ft_strrev(char *str);
 
 #endif
