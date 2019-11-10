@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/10 16:55:41 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 16:56:01 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 19:10:43 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char	*ft_strrev(char *str)
 	}
 	return (str);
 }
-

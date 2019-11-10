@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 16:56:15 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 19:18:33 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_LIBFT_H
 # include <stdlib.h>
 # define ABS(n) (n < 0) ? -n : n;
+# define SIZE sizeof(unsigned int)
 
 typedef struct	s_list
 {

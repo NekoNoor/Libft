@@ -6,13 +6,11 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 17:38:26 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/09 21:37:47 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/10 19:17:12 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define SIZE sizeof(unsigned int)
-#define MASK (SIZE - 1)
 
 static void			*ft_memset_char(void *b, int c, size_t len)
 {
@@ -50,10 +48,10 @@ void				*ft_memset(void *b, int c, size_t len)
 
 	dst = b;
 	uint = ft_repeat_bytes(c);
-	n = (long)dst & MASK;
+	n = (long)dst & SIZE - 1;
 	if (n)
 	{
-		n = MASK - n;
+		n = SIZE - n;
 		len -= n;
 		ft_memset_char(dst, c, n);
 		dst += n;
@@ -65,7 +63,7 @@ void				*ft_memset(void *b, int c, size_t len)
 		dst += SIZE;
 		n--;
 	}
-	n = len & MASK;
+	n = len & SIZE - 1;
 	if (n)
 		ft_memset_char(dst, c, n);
 	return (b);
