@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 19:15:53 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/11 13:58:22 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed;
-	int		begin;
-	int		end;
-	int		len;
+	size_t	begin;
+	size_t	end;
+	size_t	len;
 
 	if (s1 == NULL)
 		return (NULL);

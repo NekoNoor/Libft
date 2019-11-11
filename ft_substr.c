@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:27 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 19:15:56 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/11 14:17:50 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	if (*s == '\0' || start >= ft_strlen(s))
+	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	substr = (char *)malloc((len + 1) * sizeof(char));
 	if (substr == NULL)
