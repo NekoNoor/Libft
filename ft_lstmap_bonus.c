@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/06 13:09:08 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 16:35:24 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/11 10:27:06 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	t_list	*head;
 
+	if (f == NULL)
+		return (NULL);
 	head = NULL;
 	while (lst)
 	{
