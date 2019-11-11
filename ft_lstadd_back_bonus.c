@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/06 13:08:33 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/06 13:08:34 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/11 09:57:03 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*last;
 
+	if (alst == NULL)
+		return ;
 	last = ft_lstlast(*alst);
 	if (last == NULL)
 		*alst = new;
