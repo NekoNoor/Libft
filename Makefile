@@ -6,11 +6,11 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/10 17:15:23 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/11 23:14:42 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I .
 ifeq (${DEBUG},true)
 	CFLAGS := -g -fprofile-instr-generate -fcoverage-mapping $(CFLAGS)
