@@ -6,11 +6,9 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/07 17:35:49 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:38:01 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 15:43:15 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isspace(int c)
 {

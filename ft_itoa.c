@@ -6,13 +6,14 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/11 14:17:50 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 15:46:59 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int	ft_numlen(int n)
+static int	ft_numlen_base(int n, int base)
 {
 	int	len;
 
@@ -20,18 +21,21 @@ static int	ft_numlen(int n)
 	while (n)
 	{
 		len++;
-		n /= 10;
+		n /= base;
 	}
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa_base(int n, int base)
 {
-	char	*str;
-	long	nbr;
-	int		i;
+	static const char	set[] = "0123456789ABCDEF";
+	char				*str;
+	long				nbr;
+	int					i;
 
-	str = (char *)malloc((ft_numlen(n) + 1) * sizeof(char));
+	if (base < 2 || base > 16)
+		return (NULL);
+	str = (char *)malloc((ft_numlen_base(n, base) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	nbr = ABS((long)n);
@@ -43,12 +47,17 @@ char		*ft_itoa(int n)
 	}
 	while (nbr)
 	{
-		str[i] = nbr % 10 + '0';
-		nbr /= 10;
+		str[i] = set[nbr % base];
+		nbr /= base;
 		i++;
 	}
-	if (n < 0)
+	if (n < 0 && base == 10)
 		str[i] = '-';
-	str[i + (n < 0)] = '\0';
+	str[i + (n < 0 && base == 10)] = '\0';
 	return (ft_strrev(str));
+}
+
+char		*ft_itoa(int n)
+{
+	return (ft_itoa_base(n, 10));
 }

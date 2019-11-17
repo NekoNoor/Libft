@@ -6,11 +6,9 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/07 17:34:04 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:34:24 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 15:43:09 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_islower(int c)
 {

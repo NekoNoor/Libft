@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 17:20:58 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/12 06:55:17 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static unsigned char	ft_getvalue(char c, int base)
 	return (255);
 }
 
-static long				ft_strtol(const char *str, int base)
+long					ft_strtol(const char *str, int base)
 {
 	int				sign;
 	unsigned long	nbr;
 	unsigned long	max;
 	int				lim;
 
-	if (base < 2 || base > 16)
+	if (base < 2 || base > 36)
 		return (0);
 	while (ft_isspace(*str))
 		str++;

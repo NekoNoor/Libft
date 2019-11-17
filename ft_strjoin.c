@@ -6,11 +6,12 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:27 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:54:20 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 15:46:04 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

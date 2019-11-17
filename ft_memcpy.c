@@ -6,11 +6,12 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:18 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 16:47:34 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 16:04:15 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_size_t.h>
+#include <sys/_types/_null.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

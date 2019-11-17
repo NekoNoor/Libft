@@ -6,15 +6,16 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/10 19:18:33 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 15:48:56 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
-# include <stdlib.h>
+# include <sys/_types/_size_t.h>
+# include <sys/_types/_null.h>
 # define ABS(n) (n < 0) ? -n : n;
-# define SIZE sizeof(unsigned int)
+# define SIZE sizeof(unsigned long)
 
 typedef struct	s_list
 {
@@ -77,5 +78,7 @@ int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_isspace(int c);
 char			*ft_strrev(char *str);
+char			*ft_itoa_base(int n, int base);
+long			ft_strtol(const char *str, int base);
 
 #endif

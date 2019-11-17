@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/11 23:14:42 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/17 18:21:43 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,28 +52,23 @@ TIME=$(CCYAN)[$$(date +"%H:%M:%S")]$(CDEF)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "$(TIME) $(CPLUS) $(CGREEN)"
-	ar rcs $@ $^
-	@printf "$(CDEF)"
+	@echo "$(TIME) $(CPLUS) $(CGREEN)Adding objects to $@...$(CDEF)"
+	@ar rcs $@ $^
 
-bonus: $(OBJ) $(BOBJ)
-	@printf "$(TIME) $(CPLUS) $(CGREEN)"
-	ar rcs $(NAME) $^
-	@printf "$(CDEF)"
+bonus: $(NAME) | $(BOBJ)
+	@echo "$(TIME) $(CPLUS) $(CGREEN)Adding bonus objects to $(NAME)...$(CDEF)"
+	@ar rcs $(NAME) $|
 
 %.o: %.c
-	@printf "$(TIME) $(CPLUS) $(CBLUE)"
-	$(CC) $(CFLAGS) -c $< -o $@
-	@printf "$(CDEF)"
+	@echo "$(TIME) $(CPLUS) $(CBLUE)Compiling $< to $@...$(CDEF)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(TIME) $(CMINUS) $(CRED)"
-	$(RM) $(OBJ) $(BOBJ)
-	@printf "$(CDEF)"
+	@echo "$(TIME) $(CMINUS) $(CRED)Cleaning object files...$(CDEF)"
+	@$(RM) $(OBJ) $(BOBJ)
 
 fclean: clean
-	@printf "$(TIME) $(CMINUS) $(CRED)"
-	$(RM) $(NAME)
-	@printf "$(CDEF)"
+	@echo "$(TIME) $(CMINUS) $(CRED)Cleaning $(NAME)...$(CDEF)"
+	@$(RM) $(NAME)
 
 re: fclean all
