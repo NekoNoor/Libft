@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 15:48:56 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 18:38:54 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <sys/_types/_size_t.h>
 # include <sys/_types/_null.h>
 # define ABS(n) (n < 0) ? -n : n;
-# define SIZE sizeof(unsigned long)
+# define SIZE sizeof(unsigned int)
 
 typedef struct	s_list
 {
