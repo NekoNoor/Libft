@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:30 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 15:42:06 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 20:09:54 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n == INT_MIN)
 	{
 		ft_putnbr_fd(INT_MIN / 10, fd);
-		n = INT_MIN % 10;
+		n = -(INT_MIN % 10);
 	}
 	if (n < 0)
 	{
