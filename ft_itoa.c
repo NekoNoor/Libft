@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 20:13:56 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/17 21:38:37 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ char		*ft_itoa_base(int n, int base)
 	nbr = ABS((long)n);
 	i = 0;
 	if (nbr == 0)
-	{
 		str[i] = '0';
-		i++;
-	}
 	while (nbr)
 	{
 		str[i] = set[nbr % base];
@@ -53,7 +50,7 @@ char		*ft_itoa_base(int n, int base)
 	}
 	if (n < 0 && base == 10)
 		str[i] = '-';
-	str[i + (n < 0 && base == 10)] = '\0';
+	str[i + ((n < 0 && base == 10) || n == 0)] = '\0';
 	return (ft_strrev(str));
 }
 

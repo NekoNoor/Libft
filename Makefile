@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/17 18:21:43 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/17 21:50:34 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,23 +33,37 @@ BOBJ = $(BSRC:.c=.o)
 
 NAME = libft.a
 
-CRED=\x1b[31m
-CGREEN=\x1b[32m
-CYELLOW=\x1b[33m
-CBLUE=\x1b[34m
-CCYAN=\x1b[36m
-CDEFAULT=\x1b[39m
-CDEF=$(CDEFAULT)
+define ASCII
+ ___        __         ___  __
+/\\_ \\    __/\\ \\      /'___\\/\\ \\__
+\\//\\ \\  /\\_\\ \\ \\____/\\ \\__/\\ \\ ,_\\
+  \\ \\ \\ \\/\\ \\ \\ '__`\\ \\ ,__\\\\ \\ \\/
+   \\_\\ \\_\\ \\ \\ \\ \\L\\ \\ \\ \\_/ \\ \\ \\_
+   /\\____\\\\ \\_\\ \\_,__/\\ \\_\\   \\ \\__\\
+   \\/____/ \\/_/\\/___/  \\/_/    \\/__/
+endef
 
-CMINUS=$(CRED)[-]$(CDEF)
-CPLUS=$(CGREEN)[+]$(CDEF)
-CNORM=$(CYELLOW)[~]$(CDEF)
+CRED = \x1b[31m
+CGREEN = \x1b[32m
+CYELLOW = \x1b[33m
+CBLUE = \x1b[34m
+CCYAN = \x1b[36m
+CDEFAULT = \x1b[39m
+CDEF = $(CDEFAULT)
 
-TIME=$(CCYAN)[$$(date +"%H:%M:%S")]$(CDEF)
+CMINUS = $(CRED)[-]$(CDEF)
+CPLUS = $(CGREEN)[+]$(CDEF)
+CNORM = $(CYELLOW)[~]$(CDEF)
+
+TIME = $(CCYAN)[$$(date +"%H:%M:%S")]$(CDEF)
 
 .PHONY: clean fclean
 
-all: $(NAME)
+all: ascii $(NAME)
+
+export ASCII
+ascii:
+	@echo "\n$(CYELLOW)$$ASCII$(CDEF)\n"
 
 $(NAME): $(OBJ)
 	@echo "$(TIME) $(CPLUS) $(CGREEN)Adding objects to $@...$(CDEF)"
