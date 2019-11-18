@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 21:38:37 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/18 17:46:44 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	ft_numlen_base(int n, int base)
 {
 	int	len;
 
-	if (base < 2 || base > 16)
-		return (-1);
 	len = (n <= 0) ? 1 : 0;
 	while (n)
 	{
@@ -30,11 +28,13 @@ static int	ft_numlen_base(int n, int base)
 
 char		*ft_itoa_base(int n, int base)
 {
-	static const char	set[] = "0123456789ABCDEF";
+	static const char	set[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char				*str;
 	long				nbr;
 	int					i;
 
+	if (base < 2 || base > 36)
+		return (NULL);
 	str = (char *)malloc((ft_numlen_base(n, base) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
