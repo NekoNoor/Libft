@@ -6,14 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 18:38:54 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/18 17:40:26 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
-# include <sys/_types/_size_t.h>
-# include <sys/_types/_null.h>
+# include <stddef.h>
 # define ABS(n) (n < 0) ? -n : n;
 # define SIZE sizeof(unsigned int)
 

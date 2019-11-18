@@ -6,12 +6,11 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/03 17:06:11 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 16:06:23 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/18 17:41:31 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/_types/_size_t.h>
-#include <sys/_types/_null.h>
+#include <stddef.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
