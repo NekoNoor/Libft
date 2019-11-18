@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 17:38:26 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/17 18:38:44 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/18 19:26:43 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				*ft_memset(void *b, int c, size_t len)
 
 	dst = b;
 	uint = ft_repeat_bytes(c);
-	n = (long)dst & SIZE - 1;
+	n = (long)dst & (SIZE - 1);
 	if (n)
 	{
 		n = SIZE - n;
@@ -63,7 +63,7 @@ void				*ft_memset(void *b, int c, size_t len)
 		dst += SIZE;
 		n--;
 	}
-	n = len & SIZE - 1;
+	n = len & (SIZE - 1);
 	if (n)
 		ft_memset_char(dst, c, n);
 	return (b);

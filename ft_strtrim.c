@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/11 13:58:22 by nschat        ########   odam.nl         */
+/*   Updated: 2019/11/18 19:25:56 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1[begin] == '\0')
 		return (ft_strdup(""));
 	end = ft_strlen(s1) - 1;
-	while (end >= 0 && ft_strchr(set, s1[end]))
+	while (end > 0 && ft_strchr(set, s1[end]))
 		end--;
 	len = end - begin + 1;
 	trimmed = ft_substr(s1, begin, len);

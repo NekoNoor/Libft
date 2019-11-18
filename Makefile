@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/17 21:50:34 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/18 19:29:22 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,19 +43,19 @@ define ASCII
    \\/____/ \\/_/\\/___/  \\/_/    \\/__/
 endef
 
-CRED = \x1b[31m
-CGREEN = \x1b[32m
-CYELLOW = \x1b[33m
-CBLUE = \x1b[34m
-CCYAN = \x1b[36m
-CDEFAULT = \x1b[39m
-CDEF = $(CDEFAULT)
+RED = \x1b[31m
+GREEN = \x1b[32m
+YELLOW = \x1b[33m
+BLUE = \x1b[34m
+CYAN = \x1b[36m
+DEFAULT = \x1b[39m
+DEF = $(DEFAULT)
 
-CMINUS = $(CRED)[-]$(CDEF)
-CPLUS = $(CGREEN)[+]$(CDEF)
-CNORM = $(CYELLOW)[~]$(CDEF)
+MINUS = $(RED)[-]$(DEF)
+PLUS = $(GREEN)[+]$(DEF)
+NORM = $(YELLOW)[~]$(DEF)
 
-TIME = $(CCYAN)[$$(date +"%H:%M:%S")]$(CDEF)
+TIME = $(CYAN)[$$(date +"%H:%M:%S")]$(DEF)
 
 .PHONY: clean fclean
 
@@ -63,26 +63,26 @@ all: ascii $(NAME)
 
 export ASCII
 ascii:
-	@echo "\n$(CYELLOW)$$ASCII$(CDEF)\n"
+	@printf "\n$(YELLOW)$$ASCII$(DEF)\n\n"
 
 $(NAME): $(OBJ)
-	@echo "$(TIME) $(CPLUS) $(CGREEN)Adding objects to $@...$(CDEF)"
+	@printf "$(TIME) $(PLUS) $(GREEN)Adding objects to $@...$(DEF)\n"
 	@ar rcs $@ $^
 
 bonus: $(NAME) | $(BOBJ)
-	@echo "$(TIME) $(CPLUS) $(CGREEN)Adding bonus objects to $(NAME)...$(CDEF)"
+	@printf "$(TIME) $(PLUS) $(GREEN)Adding bonus objects to $(NAME)...$(DEF)\n"
 	@ar rcs $(NAME) $|
 
 %.o: %.c
-	@echo "$(TIME) $(CPLUS) $(CBLUE)Compiling $< to $@...$(CDEF)"
+	@printf "$(TIME) $(PLUS) $(BLUE)Compiling $< to $@...$(DEF)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "$(TIME) $(CMINUS) $(CRED)Cleaning object files...$(CDEF)"
+	@printf "$(TIME) $(MINUS) $(RED)Cleaning object files...$(DEF)\n"
 	@$(RM) $(OBJ) $(BOBJ)
 
 fclean: clean
-	@echo "$(TIME) $(CMINUS) $(CRED)Cleaning $(NAME)...$(CDEF)"
+	@printf "$(TIME) $(MINUS) $(RED)Cleaning $(NAME)...$(DEF)\n"
 	@$(RM) $(NAME)
 
 re: fclean all
