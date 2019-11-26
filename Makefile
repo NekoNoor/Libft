@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/18 19:29:22 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/21 14:12:02 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,9 @@ $(NAME): $(OBJ)
 	@ar rcs $@ $^
 
 bonus: $(NAME) | $(BOBJ)
-	@printf "$(TIME) $(PLUS) $(GREEN)Adding bonus objects to $(NAME)...$(DEF)\n"
-	@ar rcs $(NAME) $|
+	@printf "$(TIME) $(PLUS) $(GREEN)Adding bonus objects to $<...$(DEF)\n"
+	@touch $@
+	@ar rcs $< $|
 
 %.o: %.c
 	@printf "$(TIME) $(PLUS) $(BLUE)Compiling $< to $@...$(DEF)\n"
@@ -83,6 +84,6 @@ clean:
 
 fclean: clean
 	@printf "$(TIME) $(MINUS) $(RED)Cleaning $(NAME)...$(DEF)\n"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) bonus
 
 re: fclean all
