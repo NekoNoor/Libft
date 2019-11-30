@@ -6,15 +6,12 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/21 14:12:02 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/30 20:20:43 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I .
-ifeq (${DEBUG},true)
-	CFLAGS := -g -fprofile-instr-generate -fcoverage-mapping $(CFLAGS)
-endif
 
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
@@ -23,13 +20,11 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 	  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c \
 	  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_isupper.c ft_islower.c \
-	  ft_isspace.c ft_strrev.c
-BSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-	   ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-	   ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+	  ft_isspace.c ft_strrev.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+	  ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+	  ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
-BOBJ = $(BSRC:.c=.o)
 
 NAME = libft.a
 
@@ -69,11 +64,6 @@ $(NAME): $(OBJ)
 	@printf "$(TIME) $(PLUS) $(GREEN)Adding objects to $@...$(DEF)\n"
 	@ar rcs $@ $^
 
-bonus: $(NAME) | $(BOBJ)
-	@printf "$(TIME) $(PLUS) $(GREEN)Adding bonus objects to $<...$(DEF)\n"
-	@touch $@
-	@ar rcs $< $|
-
 %.o: %.c
 	@printf "$(TIME) $(PLUS) $(BLUE)Compiling $< to $@...$(DEF)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -84,6 +74,6 @@ clean:
 
 fclean: clean
 	@printf "$(TIME) $(MINUS) $(RED)Cleaning $(NAME)...$(DEF)\n"
-	@$(RM) $(NAME) bonus
+	@$(RM) $(NAME)
 
 re: fclean all
