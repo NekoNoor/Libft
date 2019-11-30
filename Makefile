@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/30 20:20:43 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/30 22:40:31 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,16 +28,6 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libft.a
 
-define ASCII
- ___        __         ___  __
-/\\_ \\    __/\\ \\      /'___\\/\\ \\__
-\\//\\ \\  /\\_\\ \\ \\____/\\ \\__/\\ \\ ,_\\
-  \\ \\ \\ \\/\\ \\ \\ '__`\\ \\ ,__\\\\ \\ \\/
-   \\_\\ \\_\\ \\ \\ \\ \\L\\ \\ \\ \\_/ \\ \\ \\_
-   /\\____\\\\ \\_\\ \\_,__/\\ \\_\\   \\ \\__\\
-   \\/____/ \\/_/\\/___/  \\/_/    \\/__/
-endef
-
 RED = \x1b[31m
 GREEN = \x1b[32m
 YELLOW = \x1b[33m
@@ -54,26 +44,22 @@ TIME = $(CYAN)[$$(date +"%H:%M:%S")]$(DEF)
 
 .PHONY: clean fclean
 
-all: ascii $(NAME)
-
-export ASCII
-ascii:
-	@printf "\n$(YELLOW)$$ASCII$(DEF)\n\n"
+all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "$(TIME) $(PLUS) $(GREEN)Adding objects to $@...$(DEF)\n"
-	@ar rcs $@ $^
+	@printf "$(TIME) $(PLUS) $(CYAN)$^ $(GREEN)-> $(BLUE)$@$(DEF)\n"
+	@$(AR) rcs $@ $^
 
 %.o: %.c
-	@printf "$(TIME) $(PLUS) $(BLUE)Compiling $< to $@...$(DEF)\n"
+	@printf "$(TIME) $(PLUS) $(CYAN)$< $(GREEN)-> $(BLUE)$@$(DEF)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(TIME) $(MINUS) $(RED)Cleaning object files...$(DEF)\n"
+	@printf "$(TIME) $(MINUS) $(RED)$(OBJ) $(BOBJ)$(DEF)\n"
 	@$(RM) $(OBJ) $(BOBJ)
 
 fclean: clean
-	@printf "$(TIME) $(MINUS) $(RED)Cleaning $(NAME)...$(DEF)\n"
+	@printf "$(TIME) $(MINUS) $(RED)$(NAME)$(DEF)\n"
 	@$(RM) $(NAME)
 
 re: fclean all
