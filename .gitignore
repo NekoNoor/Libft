@@ -1,5 +1,7 @@
 *
-!ft_*.c
-!libft.h
+!src/
+!src/ft_*.c
+!include/
+!include/libft.h
 !Makefile
 !.gitignore

@@ -6,12 +6,12 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/11/30 22:40:31 by nschat        ########   odam.nl          #
+#    Updated: 2019/11/30 22:51:57 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I .
+CFLAGS = -Wall -Wextra -Werror -I include
 
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
@@ -24,7 +24,8 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 	  ft_lstmap.c
 
-OBJ = $(SRC:.c=.o)
+ODIR = obj
+OBJ = $(addprefix $(ODIR)/,$(SRC:.c=.o))
 
 NAME = libft.a
 
@@ -42,6 +43,8 @@ NORM = $(YELLOW)[~]$(DEF)
 
 TIME = $(CYAN)[$$(date +"%H:%M:%S")]$(DEF)
 
+vpath %.c src
+
 .PHONY: clean fclean
 
 all: $(NAME)
@@ -50,13 +53,14 @@ $(NAME): $(OBJ)
 	@printf "$(TIME) $(PLUS) $(CYAN)$^ $(GREEN)-> $(BLUE)$@$(DEF)\n"
 	@$(AR) rcs $@ $^
 
-%.o: %.c
+$(ODIR)/%.o: %.c
 	@printf "$(TIME) $(PLUS) $(CYAN)$< $(GREEN)-> $(BLUE)$@$(DEF)\n"
+	@mkdir -p $(ODIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(TIME) $(MINUS) $(RED)$(OBJ) $(BOBJ)$(DEF)\n"
-	@$(RM) $(OBJ) $(BOBJ)
+	@printf "$(TIME) $(MINUS) $(RED)$(ODIR)$(DEF)\n"
+	@$(RM) -r $(ODIR)
 
 fclean: clean
 	@printf "$(TIME) $(MINUS) $(RED)$(NAME)$(DEF)\n"
