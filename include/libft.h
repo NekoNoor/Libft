@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:47:16 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/27 19:43:26 by nschat        ########   odam.nl         */
+/*   Updated: 2019/12/04 17:26:23 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int				ft_isspace(int c);
 char			*ft_strrev(char *str);
 char			*ft_itoa_base(int n, int base);
 long			ft_strtol(const char *str, int base);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif
