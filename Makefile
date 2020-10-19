@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 17:30:18 by nschat        #+#    #+#                  #
-#    Updated: 2019/12/04 17:21:58 by nschat        ########   odam.nl          #
+#    Updated: 2020/10/19 15:05:48 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,20 +29,6 @@ OBJ = $(addprefix $(ODIR)/,$(SRC:.c=.o))
 
 NAME = libft.a
 
-RED = \x1b[31m
-GREEN = \x1b[32m
-YELLOW = \x1b[33m
-BLUE = \x1b[34m
-CYAN = \x1b[36m
-DEFAULT = \x1b[39m
-DEF = $(DEFAULT)
-
-MINUS = $(RED)[-]$(DEF)
-PLUS = $(GREEN)[+]$(DEF)
-NORM = $(YELLOW)[~]$(DEF)
-
-TIME = $(CYAN)[$$(date +"%H:%M:%S")]$(DEF)
-
 vpath %.c src
 
 .PHONY: clean fclean
@@ -50,20 +36,16 @@ vpath %.c src
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "$(TIME) $(PLUS) $(CYAN)$^ $(GREEN)-> $(BLUE)$@$(DEF)\n"
-	@$(AR) rcs $@ $^
+	$(AR) rcs $@ $^
 
 $(ODIR)/%.o: %.c
-	@printf "$(TIME) $(PLUS) $(CYAN)$< $(GREEN)-> $(BLUE)$@$(DEF)\n"
 	@mkdir -p $(ODIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(TIME) $(MINUS) $(RED)$(ODIR)$(DEF)\n"
-	@$(RM) -r $(ODIR)
+	$(RM) -r $(ODIR)
 
 fclean: clean
-	@printf "$(TIME) $(MINUS) $(RED)$(NAME)$(DEF)\n"
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
