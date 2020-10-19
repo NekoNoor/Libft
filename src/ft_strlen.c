@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:20 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/18 17:41:14 by nschat        ########   odam.nl         */
+/*   Updated: 2020/10/19 15:27:09 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	while (s[len])
+	while (s[len] != '\0')
 		len++;
 	return (len);
 }
